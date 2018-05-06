@@ -1,0 +1,390 @@
+/* index.html */
+body {
+    width: 100%;
+    height: 100%;
+}
+.air-part {
+    background-color:#e5e5e5;
+    margin: 14px;
+    padding: 0 12px 18px 12px;
+    border: 1px solid #a3005c;
+    border-radius: 15px;
+}
+.air-conditioner {
+    width: 80%;
+    height: 50px;
+    margin: 0 auto;
+
+    border-width: 1px;
+    border-style: solid;
+    border-color: #6495ED;
+    border-radius: 7px;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+
+    color: #6495ED;
+}
+
+.air-center {
+    width: 50%;
+    height: 5px;
+
+    border-width: 1px;
+    border-style: solid;
+    border-color: #6495ED;
+    border-radius: 5px;
+    margin-bottom: 5px;
+
+}
+
+.air-open {
+    width: 100px;
+    height: 180px;
+
+    border-width: 2px;
+    border-style: solid;
+    border-color: #6495ED;
+    border-radius: 5px;
+
+    margin: 50px auto 20px auto;
+    padding: 10px;
+}
+
+.air-open .hr-part {
+    border-width: 2px;
+    border-style: solid;
+    border-color: #6495ED;
+    border-radius: 2px;
+
+    margin-bottom: 10px;
+}
+
+/* temperature.html */
+/* electric.html */
+#temp-chart,
+#elec-chart {
+    width: 90%;
+    height: 400px;
+    margin: 0 auto;
+    margin-top: 10%;
+}
+
+.segmented {
+    margin: 20px 50px;
+}
+
+/* detail.html 
+.air-circle {
+    position: relative;
+
+    width: 150px;
+    height: 150px;
+
+    border-width: 2px;
+    border-style: solid;
+    border-color: #6495ED;
+    border-radius: 90px;
+    margin: 50px auto;
+}
+/*
+.air-circle div {
+    position: absolute;
+    background-color: #fff;
+    color: #f01090;
+}
+*/
+
+/* common */
+.size-15 {
+    font-size: 15px;
+}
+
+
+/* temp show */
+.air-circle {
+  background: #505050 -moz-radial-gradient(top, #cdcdcf 0%, #505050 70%) no-repeat 50% 0%;
+  background: #505050 radial-gradient(top, #cdcdcf 0%, #505050 70%) no-repeat 50% 0%;
+  background-size: 300px 300px;
+  width: 300px;
+  height: 300px;
+  margin: 10px auto;
+  margin-bottom: 10px;
+}
+
+.temp-button {
+  background-color: #fff;
+  width: 300px;
+  height: 300px;
+  margin: 20px auto;
+  background: #b19d92 -moz-radial-gradient(top, #fbf2ed 0%, #b19d92 75%) no-repeat 50% 0%;
+  background: #b19d92 radial-gradient(top, #fbf2ed 0%, #b19d92 75%) no-repeat 50% 0%;
+  border-radius: 15%;
+  box-shadow:
+    -1px 1px 2px rgba(255,255,255,.6) inset,
+    1px 0 3px rgba(0,0,0,.25) inset,
+    0 -6px 12px -3px rgba(0,0,0,.8) inset,
+    0 20px 20px 3px rgba(0,0,0,.6);
+  position: relative;
+}
+.button:before {
+  content: '';
+  position: absolute;
+  width: 140px;
+  height: 240px;
+  left: 30px;
+  top: 30px;
+  border-radius: 50%;
+  background: #b19d92 -moz-linear-gradient(top, #efe4de 0%, #af998c 75%) no-repeat 50% 0%;
+  background: #b19d92 linear-gradient(top, #efe4de 0%, #af998c 75%) no-repeat 50% 0%;
+}
+.knob {
+  z-index: 10;
+  position: absolute;
+  top: 60px;
+  left: 60px;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: #b19d92 -moz-radial-gradient(top, #e7d9d0 0%, #c5b1a6 75%) no-repeat 50% 0%;
+  background: #b19d92 radial-gradient(top, #e7d9d0 0%, #c5b1a6 75%) no-repeat 50% 0%;
+  box-shadow:
+    0 6px 5px rgba(255,255,255,.4) inset,
+    1px 0 3px rgba(0,0,0,.25) inset,
+    0 -6px 5px rgba(0,0,0,.2) inset,
+    0 15px 12px -5px rgba(0,0,0,.6); 
+  color: #b19d92;
+  font-weight: bold;
+  font-size: 50px;
+  letter-spacing: -4px;
+  line-height: 180px;
+  text-align: center;
+  text-shadow:
+    0 1px 2px rgba(255,255,255,1),
+    0 -1px 2px rgba(0,0,0,.55);
+}
+.knob:after {
+  content: '';
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: -8px 0 0 -8px;
+  transform: rotate(230deg) translateY(-75px) rotate(-230deg);
+  border-radius: 50%;
+  z-index: 100;
+  background: #b19d92;
+  box-shadow:
+    0 1px 2px rgba(0,0,0,.35) inset;
+}
+.dial {
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 50%;
+  transform: scale(.8);
+}
+.dial:before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: 50%;
+  z-index: 100;
+  box-shadow:
+    0 -1px 10px rgba(255,255,255,.5) inset,
+    -3px 0 3px rgba(0,0,0,.45) inset,
+    0 3px 3px rgba(0,0,0,.3) inset; 
+}
+.dial .outer {
+  width: 2000px;
+  height: 910px;
+  padding-top: 1090px;
+  margin: -850px 0 0 -850px;
+  position: relative;
+}
+.dial .outer:after {
+  content: '';
+  width: 220px;
+  height: 220px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -110px 0 0 -110px;
+  border-radius: 50%;
+  background: #FFF;
+}
+.dial b {
+  display: block;
+  width: 0;
+  height: 0;
+  border-width: 80px 1000px;
+  margin: -160px 0 0 0;
+  border-color: transparent transparent transparent red;
+  border-style: solid;
+}
+.dial b:nth-child(1) { transform: rotate(95deg);  border-left-color: rgb(0,0,255); }
+.dial b:nth-child(2) { transform: rotate(105deg);  border-left-color: rgb(7,0,248); }
+.dial b:nth-child(3) { transform: rotate(115deg);  border-left-color: rgb(14,0,241); }
+.dial b:nth-child(4) { transform: rotate(125deg);  border-left-color: rgb(21,0,234); }
+.dial b:nth-child(5) { transform: rotate(135deg);  border-left-color: rgb(28,0,227); }
+.dial b:nth-child(6) { transform: rotate(145deg);  border-left-color: rgb(35,0,220); }
+.dial b:nth-child(7) { transform: rotate(155deg);  border-left-color: rgb(43,0,213); }
+.dial b:nth-child(8) { transform: rotate(165deg);  border-left-color: rgb(50,0,205); }
+.dial b:nth-child(9) { transform: rotate(175deg);  border-left-color: rgb(57,0,198); }
+.dial b:nth-child(10) { transform: rotate(185deg);  border-left-color: rgb(64,0,191); }
+.dial b:nth-child(11) { transform: rotate(195deg);  border-left-color: rgb(71,0,184); }
+.dial b:nth-child(12) { transform: rotate(205deg);  border-left-color: rgb(78,0,177); }
+.dial b:nth-child(13) { transform: rotate(215deg);  border-left-color: rgb(85,0,170); }
+.dial b:nth-child(14) { transform: rotate(225deg);  border-left-color: rgb(92,0,163); }
+.dial b:nth-child(15) { transform: rotate(235deg);  border-left-color: rgb(99,0,156); }
+.dial b:nth-child(16) { transform: rotate(245deg);  border-left-color: rgb(106,0,149); }
+.dial b:nth-child(17) { transform: rotate(255deg);  border-left-color: rgb(113,0,142); }
+.dial b:nth-child(18) { transform: rotate(265deg);  border-left-color: rgb(120,0,135); }
+.dial b:nth-child(19) { transform: rotate(275deg);  border-left-color: rgb(128,0,128); }
+.dial b:nth-child(20) { transform: rotate(285deg);  border-left-color: rgb(135,0,120); }
+.dial b:nth-child(21) { transform: rotate(295deg);  border-left-color: rgb(142,0,113); }
+.dial b:nth-child(22) { transform: rotate(305deg);  border-left-color: rgb(149,0,106); }
+.dial b:nth-child(23) { transform: rotate(315deg);  border-left-color: rgb(156,0,99); }
+.dial b:nth-child(24) { transform: rotate(325deg);  border-left-color: rgba(163,0,92,1); }
+.dial b:nth-child(25) { transform: rotate(335deg);  border-left-color: rgba(170,0,85,.3); }
+.dial b:nth-child(26) { transform: rotate(345deg);  border-left-color: rgba(177,0,78,.3); }
+.dial b:nth-child(27) { transform: rotate(355deg);  border-left-color: rgba(184,0,71,.3); }
+.dial b:nth-child(28) { transform: rotate(365deg);  border-left-color: rgba(191,0,64,.3); }
+.dial b:nth-child(29) { transform: rotate(375deg);  border-left-color: rgba(198,0,57,.3); }
+.dial b:nth-child(30) { transform: rotate(385deg);  border-left-color: rgba(205,0,50,.3); }
+.dial b:nth-child(31) { transform: rotate(395deg);  border-left-color: rgba(213,0,43,.3); }
+.dial b:nth-child(32) { transform: rotate(405deg);  border-left-color: rgba(220,0,35,.3); }
+.dial b:nth-child(33) { transform: rotate(415deg);  border-left-color: rgba(227,0,28,.3); }
+.dial b:nth-child(34) { transform: rotate(425deg);  border-left-color: rgba(234,0,21,.3); }
+.dial b:nth-child(35) { transform: rotate(435deg);  border-left-color: rgba(241,0,14,.3); }
+.dial b:nth-child(36) { transform: rotate(445deg);  border-left-color: rgba(248,0,7,.3); } 
+
+.air-circle-container {
+    height: 350px;
+    width: 100%;
+    padding: 10px;
+    position: relative;
+    bottom: 12px;
+    border-radius: 15px; 
+}
+.navbar {
+    background-color: #11b5f8;
+}
+.md .navbar {
+    background-color: #635f99;
+}
+.md .toolbar {
+    background-color: #635f99;
+}
+.m-purple {
+    /*background-image: url(http://file03.16sucai.com/2017/1100/16sucai_p20161104099_1f3.JPG);
+    background-image: url(http://mpt.135editor.com/mmbiz/yqVAqoZvDibFBUtBHL9Y5sfbCFHfUGuqEt4ia7ZwZTF4hxLWelXjicJtth5d4yGmLxxcHWm30iaEDFneQICaocaRtg/0?wx_fmt=jpeg);*/
+    /*background-color: #635f99;*/
+}
+.air-title {
+    font-size: 18px;
+    color:#635f99;
+    text-align: center;
+    border-bottom: 1px solid #a3005c;
+}
+.md .block-title {
+    color: #635f99;
+    padding-bottom: 10px;
+}
+
+/*空调没开时*/
+.page-content .oper-list{
+    width: 100%;
+    position :absolute;
+    bottom: 50px;
+}
+.page-content .oper-list li {
+    height: 70px;
+}
+.md .list .item-content {
+    height: 70px;
+    text-decoration: none;
+}
+.li-1 {
+    background-color:antiquewhite;
+}
+.li-2 {
+    background-color: #fff;
+}
+.li-3 {
+    background-color: #e5e5e5;
+}
+.enter {
+    font-size: 30px;
+    color: #b19d92;
+}
+.md a {
+    color: #b19d92;
+}
+.icon-2nd {
+    right: 4px;
+}
+.icon-3rd {
+    left: 5px;
+}
+.item-2nd {
+    position: relative;
+    right: 2px;
+}
+.item-3rd{
+    position: relative;
+    right: 5px;
+}
+/* detail page */
+
+.md .detail-title {
+    font-size: 18px;
+    margin: 0;
+    padding: 18px;
+    position: relative;
+    bottom: 5px;
+    background-color: antiquewhite;
+    /*box-sizing: border-box;*/
+}
+.li .no-hairlines-md {
+    
+}
+.md .list {
+    margin: 0;
+    padding: 0;
+}
+
+/* clock */
+.clock-list {
+    
+    border-bottom: 1px solid aliceblue;
+    border-top: 1px solid aliceblue;
+    
+    background-color: aliceblue;
+    
+    font-size: 14px;
+}
+
+/* electric */
+
+.my-footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    margin: 0;
+}
+/*
+.btn-left {
+    width: 50%;
+    float: left;
+}
+.btn-right {
+    width: 50%;
+    float: right;
+}
+*/
