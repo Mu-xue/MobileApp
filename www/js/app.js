@@ -25,6 +25,11 @@ var mainView = app.views.create('.view-main', {
   url: '/'
 });
 
+var delete_clock = function(date0){
+  date = date0.substr(0,10);
+  time = date0.substr(12,19);
+  console.log(date,time);
+}
 
 $$(document).on('page:reinit page:init', '.page[data-name="air"]', function (e) {
   var air_state = '';
@@ -129,6 +134,7 @@ $$(document).on('page:init', '.page[data-name="electric"]', function (e) {
 
     elecChart.setOption(option);
 });
+
 
 $$(document).on('page:init', '.page[data-name="clock"]', function (e) {
   var today = new Date();
@@ -279,19 +285,21 @@ $$(document).on('page:init', '.page[data-name="clock"]', function (e) {
           date = t[0]+'-'+(parseInt((parseInt(t[1])+1)/10)>0?parseInt(t[1])+1:'0'+(parseInt(t[1])+1))+'-'+(parseInt(parseInt(t[2])/10)>0?parseInt(t[2]):'0'+parseInt(t[2]));
           time = t[3]+':'+t[4]+':00';
           console.log(date,time);
-/*
+
         app.request({
-          url:'http://120.78.155.180:3123/airC/V1/writeRunningMode',
+          url:'http://120.78.155.180:3123/airC/V1/writeTimerSwitch',
           method: 'POST',
           crossDomain: true,//这个一定要设置成true，默认是false，true是跨域请求。
           data: {
            id:'01d82817-0ece',
-           input: mode
+           date: date,
+           time: time,
+           type: '1'
           },
           success: function(res){
-            if(res == '1'){
+            if(res == '0'){
               var toastCenter = app.toast.create({
-                text: '切换空调模式成功',
+                text: '已预约定时开启',
                 position: 'center',
                 closeTimeout: 2000,
               });
@@ -299,7 +307,7 @@ $$(document).on('page:init', '.page[data-name="clock"]', function (e) {
             }
           }
         });
-*/
+
        }
       }
     }
@@ -309,11 +317,68 @@ $$(document).on('page:init', '.page[data-name="clock"]', function (e) {
     el: '#toggle2',
     on: {
       change: function (toggle) {
-       
+       var t =  picker_open.value;
+       if(toggle.checked == true){
+          date = t[0]+'-'+(parseInt((parseInt(t[1])+1)/10)>0?parseInt(t[1])+1:'0'+(parseInt(t[1])+1))+'-'+(parseInt(parseInt(t[2])/10)>0?parseInt(t[2]):'0'+parseInt(t[2]));
+          time = t[3]+':'+t[4]+':00';
+          console.log(date,time);
+
+          app.request({
+            url:'http://120.78.155.180:3123/airC/V1/writeTimerSwitch',
+            method: 'POST',
+            crossDomain: true,//这个一定要设置成true，默认是false，true是跨域请求。
+            data: {
+             id:'01d82817-0ece',
+             date: date,
+             time: time,
+             type: '0'
+            },
+            success: function(res){
+              if(res == '0'){
+                var toastCenter = app.toast.create({
+                  text: '已预约定时关闭',
+                  position: 'center',
+                  closeTimeout: 2000,
+                });
+                toastCenter.open();
+              }
+            }
+          });
+        }
       }
     }
   });
   toggle2.checked=false;
+
+  app.request({
+    url:'http://120.78.155.180:3123/airC/V1/getTimerSwitch',
+    method: 'POST',
+    crossDomain: true,//这个一定要设置成true，默认是false，true是跨域请求。
+    data: {
+     id:'01d82817-0ece'
+    },
+    success: function(res){
+      if(res){
+        res = JSON.parse(res);
+        console.log(res);
+        for(var i = 0; i<res.size;i++){
+          var date = 'date'+i;
+          var type = 'type'+i;
+          $$('#clock_list').append(`<li>
+            <div class="item-content">
+              <div class="item-media"><i class="icon f7-icons">${res[type]=='0'?'delete':'check'}_round</i></div>
+              <div class="item-inner">
+                <div class="item-title">${res[date].substr(0,19)}</div>
+              </div>
+            </div>
+          </li>`);
+
+        }
+      }
+    }
+  });
+
+
 });
 
 $$(document).on('page:init page:reinit', '.page[data-name="detail"]', function (e) {

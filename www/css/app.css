@@ -373,6 +373,16 @@ body {
     font-size: 14px;
 }
 
+.color-red {
+    float: right;
+    width: 50px;
+    color: #f44336;
+    border: 1px solid #f44336 !important; 
+    border-radius: 20px !important;
+    height: 30px !important;
+    line-height: 30px !important;
+}
+
 /* electric */
 
 .my-footer {
